@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--配置对象-->
+  <bean id="stu" class="sample.com.atguigu.Stu">
+      <!--数组注入-->
+      <property name="course">
+          <array>
+              <value>java</value>
+              <value>sql</value>
+          </array>
+
+      </property>
+      <property name="list">
+          <list>
+              <ref bean="course1"></ref>
+              <ref bean="course2"></ref>
+          </list>
+
+      </property>
+      <property name="map">
+          <map>
+              <entry key="JAVA" value="java"></entry>
+              <entry key="PHP" value="php"></entry>
+          </map>
+
+      </property>
+  </bean>
+    <bean id="course1" class="sample.com.atguigu.Course">
+        <property name="cname" value="SPRING"></property>
+    </bean>
+    <bean id="course2" class="sample.com.atguigu.Course">
+        <property name="cname" value="MYBATIS"></property>
+    </bean>
+
+</beans>
